@@ -7,6 +7,7 @@ import { CountriesComponent } from './countries/countries.component';
 
 @NgModule({
   declarations: [
+    AppComponent,
     CountriesComponent,
   ],
   imports: [
