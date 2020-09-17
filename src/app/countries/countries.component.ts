@@ -25,4 +25,37 @@ export class CountriesComponent implements OnInit {
       (err) => console.error('Erro ao tentar carregar países')
     );
   }
+
+  public exportExcel() {
+    let workbook = new Workbook();
+    let worksheet = workbook.addWorksheet('Dados de países');
+
+    worksheet.columns = [
+      { header: 'Nome', key: 'name', width: 32 },
+      { header: 'Nome Nativo', key: 'nativeName', width: 32 },
+      { header: 'Capital', key: 'capital', width: 32 },
+      { header: 'Região', key: 'region', width: 32 },
+      { header: 'Sub Região', key: 'subregion', width: 32 },
+      { header: 'População', key: 'population', width: 32 },
+      { header: 'Área', key: 'area', width: 32 },
+      { header: 'Link para ver bandeira', key: 'flag', width: 40 },
+      {
+        header: 'Fuso Horário',
+        key: 'timezones',
+        width: 50,
+        style: { font: { name: 'Arial Black', size: 10 } },
+      },
+    ];
+
+    worksheet.addRows(this.countries, 'n');
+
+    workbook.xlsx.writeBuffer().then((data) => {
+      let blob = new Blob([data], {
+        type:
+          'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      });
+      fs.saveAs(blob, 'Paises.xlsx');
+    });
+  }
+
 }
