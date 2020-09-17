@@ -9,4 +9,9 @@ export class CountryService {
   private filteredFildsUrl =
     '/all?fields=name;capital;region;subregion;population;area;timezones;nativeName;flag';
 
+  constructor(private _http: HttpClient) {}
+
+  getCountries() {
+    return this._http.get<Country[]>(this.filteredFildsUrl);
+  }
 }
