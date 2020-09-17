@@ -39,12 +39,7 @@ export class CountriesComponent implements OnInit {
       { header: 'População', key: 'population', width: 32 },
       { header: 'Área', key: 'area', width: 32 },
       { header: 'Link para ver bandeira', key: 'flag', width: 40 },
-      {
-        header: 'Fuso Horário',
-        key: 'timezones',
-        width: 50,
-        style: { font: { name: 'Arial Black', size: 10 } },
-      },
+      { header: 'Fuso Horário', key: 'timezones', width: 50 },
     ];
 
     worksheet.addRows(this.countries, 'n');
