@@ -7,14 +7,12 @@ import { CountriesComponent } from './countries/countries.component';
 import { CountryComponent } from './country/country.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CountriesComponent,
-    CountryComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
   ],
   providers: [],
   bootstrap: [AppComponent]
