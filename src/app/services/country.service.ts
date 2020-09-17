@@ -6,4 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CountryService {
   private countriesUrl = '/all';
+  private filteredFildsUrl =
+    '/all?fields=name;capital;region;subregion;population;area;timezones;nativeName;flag';
+
 }
