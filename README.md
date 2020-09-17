@@ -1,9 +1,10 @@
 # DevChallenge
 
 Este é um projecto desenvolvido como **Uma prova** no concurso criado pela **2iBi Software** para enquadramento no seu quadro de pessoal, cujo onjectivo é atender as necessidades exigidas pela enpresa:
-⋅⋅\* Desenvolver um cliente REST que permite obter e visualizar as informações de propriedades dos países presentes na API [https://rescountries.eu](https://restcountries.eu) como nome, capital, região, sub-região, população, área, fuso horário, nome nativo e o link para visualizar a bandeira.
 
-..\* Permitir exportar as informações dos países para o formato XLS, CSV.
+- Desenvolver um cliente REST que permite obter e visualizar as informações de propriedades dos países presentes na API [https://rescountries.eu](https://restcountries.eu) como nome, capital, região, sub-região, população, área, fuso horário, nome nativo e o link para visualizar a bandeira.
+
+- Permitir exportar as informações dos países para o formato XLS, CSV.
 
 ## Instalação
 
