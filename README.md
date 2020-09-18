@@ -4,7 +4,7 @@ Este é um projecto desenvolvido como **Uma prova** no concurso criado pela **2i
 
 - Desenvolver um cliente REST que permite obter e visualizar as informações de propriedades dos países presentes na API [https://rescountries.eu](https://restcountries.eu) como nome, capital, região, sub-região, população, área, fuso horário, nome nativo e o link para visualizar a bandeira.
 
-- Permitir exportar as informações dos países para o formato XLS, CSV.
+- Permitir exportar as informações dos países para o formato XLS, CSV e XML.
 
 ## Instalação
 
