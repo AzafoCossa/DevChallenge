@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Country } from '../models/country';
 import { CountryService } from '../services/country.service';
 import { Workbook } from 'exceljs';
+import * as XMLWriter from 'xml-writer';
 import * as fs from 'file-saver';
 
 @Component({
@@ -10,7 +11,7 @@ import * as fs from 'file-saver';
   styleUrls: ['./countries.component.scss'],
 })
 export class CountriesComponent implements OnInit {
-  countries: Country[] = [];
+  countries = [];
   constructor(private _countryService: CountryService) {}
 
   ngOnInit(): void {
@@ -80,5 +81,30 @@ export class CountriesComponent implements OnInit {
       let blob = new Blob([data], { type: 'text/csv' });
       fs.saveAs(blob, 'paises.csv');
     });
+  }
+
+  public exportXML() {
+    let xw = new XMLWriter();
+
+    xw.startDocument();
+    xw.startElement('root');
+    xw.startElement('paises');
+    this.countries.forEach((data) => {
+      xw.startElement('pais')
+        .writeAttribute('nomeNativo', data.nativeName)
+        // .writeAttribute('capital', data.capital)
+        // .writeAttribute('regiao', data.region)
+        // .writeAttribute('subRegiao', data.subregion)
+        // .writeAttribute('populacao', data.population)
+        // .writeAttribute('area', data.area)
+        // .writeAttribute('fusoHorario', data.timezones)
+        // .writeAttribute('Bandeira', data.flag)
+        .text(data.name)
+        .endElement();
+    });
+    xw.endDocument();
+
+    let blob = new Blob([xw], { type: 'text/xml' });
+    fs.saveAs(blob, 'paises.xml');
   }
 }
